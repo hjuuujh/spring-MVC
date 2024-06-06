@@ -1,17 +1,12 @@
-1. 스프링 MVC 기본 HTTP 요청 매핑 
-- Controller/RestController의 차이  
-Controller : 응답갓 기본적으로 HTML을 줌  
-RestController : 응닶값으로 Rest API 요청에 대한 응답을 주도록 되어있음
-- 어노테이션 : @RequestMapping
-- 축약형  
-@GetMapping : 데이터를 가져옴    
-@PostMapping : 데이터를 전송함   
-@PutMapping : 전체 수정   
-@PatchMapping : 일부 수정   
-@DeleteMapping : 삭제    
-2. 스프링 MVC HTTP 요청 파라미터 전송
-- 파리미터 넘기는 방법
-Get, Delete  
-PathVariable : 요새는 id를 path에 넣는 것을 선호, @PathVariable("id") String id  
-query-params : 추가적인 정보를 입력, 게시판의 검색 필터 페이지에 많이사용, @RequestParam  
-@RequstBody : http body의 정보 편리하게 받을 수 있음 -> 자주 사용
+1. 필터
+- 스프링 외부의 서블릿에서 제공하는 공통처리 기능
+- 스프링 내로 요청이 들어오기 전과 스프링의 요청이 나갈 때 처리 가능
+- 조금 더 low level 처리 가능
+- 제일 앞에서 필터링 해주는 곳
+- 실습 : 요청//응답 로깅  
+인증 등 웹과 관련된 공통 관심사 처리시 HTTP 헤더나 URL 정보들이 필요하기 때문에 웹관련 기술 필요  
+2. 인터셉터
+- 스프링에서 제공하는 공통 처리 기능
+- 실제 매핑된 Handler 정보 확인기능 (어떤 것이 실제 내 요청을처리하는지도 확인 가능)
+- 조금더 상세한 조건식과 세부적인 스펙(pre, post, after)를 통해 구체적인 시점에 구체적인 동작 가능
+- AOP와 비교하면 AOP는 인터세버보다 더 구체적인 조건과 동작위치 등을 가짐
